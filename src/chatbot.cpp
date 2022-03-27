@@ -78,6 +78,10 @@ ChatBot& ChatBot::operator=(const ChatBot& other){
 ChatBot& ChatBot::operator=(ChatBot&& other){
     std::cout << "ChatBot Mode Assignment" << std::endl;
     
+    if (this == &other) {
+        return *this;
+    }
+
     _image = std::exchange(other._image, nullptr);
     _currentNode = std::exchange(other._currentNode, nullptr);
     _rootNode = std::exchange(other._rootNode, nullptr);
